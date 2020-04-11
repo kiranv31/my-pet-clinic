@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>pro.learning</groupId>
 		<artifactId>my-pet-clinic</artifactId>
-		<version>0.0.2</version>
+		<version>0.0.3-SNAPSHOT</version>
 	</parent>
 	<artifactId>mypet-clinic-web</artifactId>
 	<packaging>war</packaging>
@@ -42,7 +42,7 @@
 		<dependency>
 			<groupId>pro.learning</groupId>
 			<artifactId>mypet-clinic-data</artifactId>
-			<version>0.0.2</version>
+			<version>0.0.3-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
