@@ -1,12 +1,15 @@
 package pro.learning.petclinic.service.map;
 
-import java.util.HashSet;
 import java.util.Set;
+
+import org.springframework.stereotype.Service;
 
 import pro.learning.petclinic.model.Pet;
 import pro.learning.petclinic.service.CrudService;
+import pro.learning.petclinic.service.PetService;
 
-public class PetServiceMapImpl extends AbstractMapService<Pet, Long> implements CrudService<Pet, Long> {
+@Service
+public class PetServiceMapImpl extends AbstractMapService<Pet, Long> implements PetService {
 
 	public Pet findById(Long Id) {
 		return super.findById(Id);

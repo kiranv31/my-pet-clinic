@@ -1,20 +1,36 @@
 package pro.learning.petclinic.service.map;
 
-import java.security.acl.Owner;
 import java.util.Set;
 
-import pro.learning.petclinic.service.CrudService;
+import org.springframework.stereotype.Service;
 
-public class OwnerServiceMapImple extends AbstractMapService<Owner, Long> implements CrudService<Owner, Long> {
+import pro.learning.petclinic.model.Owner;
+import pro.learning.petclinic.service.OwnerService;
 
+@Service
+public class OwnerServiceMapImple extends AbstractMapService<Owner, Long> implements OwnerService{
+
+	@Override
 	public Owner findById(Long Id) {
 		return super.findById(Id);
 	}
 
-	public Owner save(Long id, Owner object) {
-		return super.save(id, object);
+	@Override
+	public Owner save(Long id, Owner owner) {
+		return super.save(id, owner);
 	}
 
+	@Override
+	public void delete(Owner owner) {
+		super.delete(owner);
+	}
+
+	@Override
+	public Owner findByLastName(String lastName) {
+		return null;
+	}
+
+	
 	public Set<Owner> findAll() {
 		return super.findAll();
 	}
@@ -23,7 +39,4 @@ public class OwnerServiceMapImple extends AbstractMapService<Owner, Long> implem
 		super.deleteById(id);
 	}
 
-	public void delete(Owner object) {
-		super.delete(object);
-	}
 }
