@@ -15,8 +15,8 @@ public class VetServiceMapImpl extends AbstractMapService<Vet, Long> implements 
 		return super.findById(Id);
 	}
 
-	public Vet save(Long id, Vet object) {
-		return super.save(id, object);
+	public Vet save(Vet object) {
+		return super.save(object);
 	}
 
 	public Set<Vet> findAll() {

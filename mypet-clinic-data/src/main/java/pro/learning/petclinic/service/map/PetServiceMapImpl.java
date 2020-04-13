@@ -15,8 +15,8 @@ public class PetServiceMapImpl extends AbstractMapService<Pet, Long> implements 
 		return super.findById(Id);
 	}
 
-	public Pet save(Long id, Pet object) {
-		return super.save(id, object);
+	public Pet save(Pet object) {
+		return super.save(object);
 	}
 
 	public Set<Pet> findAll() {
