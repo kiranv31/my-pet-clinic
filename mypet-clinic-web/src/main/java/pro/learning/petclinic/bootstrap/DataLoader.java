@@ -4,8 +4,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import pro.learning.petclinic.model.Owner;
+import pro.learning.petclinic.model.PetType;
 import pro.learning.petclinic.model.Vet;
 import pro.learning.petclinic.service.OwnerService;
+import pro.learning.petclinic.service.PetService;
+import pro.learning.petclinic.service.PetTypeService;
 import pro.learning.petclinic.service.VetService;
 import pro.learning.petclinic.service.map.OwnerServiceMapImple;
 import pro.learning.petclinic.service.map.VetServiceMapImpl;
@@ -15,14 +18,25 @@ public class DataLoader implements CommandLineRunner {
 
 	final private OwnerService ownerService;
 	final private VetService vetService;
-	
-	public DataLoader(OwnerService ownerService, VetService vetService) {
+	final private PetTypeService petTypeService;
+
+	public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
+		this.petTypeService = petTypeService;
 		this.ownerService = ownerService;
 		this.vetService = vetService;
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
+
+		PetType dog = new PetType();
+		dog.setName("Dog");
+		petTypeService.save(dog);
+
+		PetType cat = new PetType();
+		cat.setName("Cat");
+		petTypeService.save(cat);
+
 		Owner owner1 = new Owner();
 		owner1.setId(1L);
 		owner1.setFirstName("Sherlock");
@@ -50,11 +64,9 @@ public class DataLoader implements CommandLineRunner {
 		System.out.println("Loading data...");
 		System.out.println("Data loaded....");
 
-		ownerService.findAll()
-				.stream()
+		ownerService.findAll().stream()
 				.forEach((owner) -> System.out.println(owner.getFirstName() + " " + owner.getLastName()));
-		vetService.findAll()
-				.stream()
+		vetService.findAll().stream()
 				.forEach((vetObject) -> System.out.println(vetObject.getFirstName() + " " + vetObject.getLastName()));
 	}
 
