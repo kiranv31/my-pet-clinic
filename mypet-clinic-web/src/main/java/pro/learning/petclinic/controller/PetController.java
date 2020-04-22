@@ -8,7 +8,7 @@ import pro.learning.petclinic.service.PetService;
 
 
 @Controller
-@RequestMapping({"/pet"})
+@RequestMapping({"/pets"})
 public class PetController {
 	
 	private final PetService petService;
